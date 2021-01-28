@@ -220,6 +220,8 @@ PODS:
     - React-cxxreact (= 0.63.3-0)
     - React-jsi (= 0.63.3-0)
   - React-jsinspector (0.63.3-0)
+  - react-native-safe-area-context (3.1.9):
+    - React-Core
   - react-native-video (5.1.1):
     - React-Core
     - react-native-video/Video (= 5.1.1)
@@ -277,6 +279,8 @@ PODS:
     - React-Core (= 0.63.3-0)
     - React-cxxreact (= 0.63.3-0)
     - React-jsi (= 0.63.3-0)
+  - RNCMaskedView (0.1.10):
+    - React
   - RNScreens (2.17.1):
     - React-Core
   - Yoga (1.14.0)
@@ -307,6 +311,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-video (from `../node_modules/react-native-video`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -316,6 +321,7 @@ DEPENDENCIES:
   - React-RCTSettings (from `../node_modules/react-native/Libraries/Settings`)
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -368,6 +374,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-safe-area-context:
+    :path: "../node_modules/react-native-safe-area-context"
   react-native-video:
     :path: "../node_modules/react-native-video"
   React-RCTAnimation:
@@ -386,6 +394,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Text"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-community/masked-view"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -419,6 +429,7 @@ SPEC CHECKSUMS:
   React-jsi: 5ce5b7ca8fab0ad99f105eed24885378f58d413c
   React-jsiexecutor: ed40f5a2002cdc5c9551087d2ad07312f7692c8a
   React-jsinspector: 4f9ec704391789e4cfd5d6ef3da36a53ed6d17c5
+  react-native-safe-area-context: b6e0e284002381d2ff29fa4fff42b4d8282e3c94
   react-native-video: 0bb76b6d6b77da3009611586c7dbf817b947f30e
   React-RCTAnimation: aec69e10c3f7126c1c353b416613619581d5a6b1
   React-RCTBlob: e6e33514f6123e956ef17cb6253b6326bf949548
@@ -428,6 +439,7 @@ SPEC CHECKSUMS:
   React-RCTSettings: 5e8889a9646c8c18432c1c4a24682f8ce0b63e2d
   React-RCTText: fdf1d98de8e6556d35f837ac9121464363e10ad8
   ReactCommon: 13cb5bbb74ee1c844bc14aead4d8da214a7d3374
+  RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNScreens: b6c9607e6fe47c1b6e2f1910d2acd46dd7ecea3a
   Yoga: 5d20be5a2c1c18789d3181cbbff241010ff959e7
   YogaKit: 1e22bf2228b3a5ac8cc88965153061ae92c494b5
