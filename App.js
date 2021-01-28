@@ -41,18 +41,18 @@ const App: () => React$Node = () => {
         s: '-starts_at',
       })
       .then((r) => {
-        if  (r.data.length > 0) {
+        if (r.data.length > 0) {
           setNextBroadcast({
             messageName: r.data[0].name,
-            messageTime: moment(r.data[0].starts_at).calendar(),,
-          });;
+            messageTime: moment(r.data[0].starts_at).calendar(),
+          });
         } else {
           setNextBroadcast({
             messageName: '',
-            messageTime: '',,
-          });;
+            messageTime: '',
+          });
         }
-      });;
+      });
   }
 
   function getCurrentBroadcast() {
@@ -61,12 +61,12 @@ const App: () => React$Node = () => {
         q: 'timeframe:current',
         s: '-starts_at',
         l: 20,
-        p: 0,,
+        p: 0,
       })
       .then((r) => {
-        var isLive = r.data.length;;
+        var isLive = r.data.length;
 
-        if  (isLive) {
+        if (isLive) {
           var broadcast_id = null;
           if (r.data[0].id) {
             broadcast_id = r.data[0].id;
@@ -74,14 +74,14 @@ const App: () => React$Node = () => {
           api.views
             .get(broadcast_id, {
               channel_id: channel_id,
-              extended: true,,
+              extended: true,
             })
             .then((view) => {
               // console.log(isLive)
-              setCurrentBroadcast(view.playlist);;
-            });;
+              setCurrentBroadcast(view.playlist);
+            });
         } else {
-          setCurrentBroadcast(PREROLL_VIDEO);;
+          setCurrentBroadcast(PREROLL_VIDEO);
         }
       });
   }
@@ -90,11 +90,11 @@ const App: () => React$Node = () => {
 
   useInterval(() => {
     getNextBroadcast(), 120000;
- ; });
+  });
 
   useInterval(() => {
     getCurrentBroadcast(), 5000;
- ; }); // Make call every 5s
+  }); // Make call every 5s
 
   return (
     <>
@@ -103,7 +103,7 @@ const App: () => React$Node = () => {
         <VideoPlayer
           source={{uri: currentBroadcast}}
           ref={(ref) => {
-            this.player = ref;;
+            this.player = ref;
           }}
           style={styles.backgroundVideo}
         />
