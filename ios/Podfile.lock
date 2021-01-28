@@ -277,6 +277,8 @@ PODS:
     - React-Core (= 0.63.3-0)
     - React-cxxreact (= 0.63.3-0)
     - React-jsi (= 0.63.3-0)
+  - RNScreens (2.17.1):
+    - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga
@@ -314,6 +316,7 @@ DEPENDENCIES:
   - React-RCTSettings (from `../node_modules/react-native/Libraries/Settings`)
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -383,6 +386,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Text"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -423,6 +428,7 @@ SPEC CHECKSUMS:
   React-RCTSettings: 5e8889a9646c8c18432c1c4a24682f8ce0b63e2d
   React-RCTText: fdf1d98de8e6556d35f837ac9121464363e10ad8
   ReactCommon: 13cb5bbb74ee1c844bc14aead4d8da214a7d3374
+  RNScreens: b6c9607e6fe47c1b6e2f1910d2acd46dd7ecea3a
   Yoga: 5d20be5a2c1c18789d3181cbbff241010ff959e7
   YogaKit: 1e22bf2228b3a5ac8cc88965153061ae92c494b5
 

@@ -1,5 +1,7 @@
 import {useEffect, useRef} from 'react';
 
+// Allows us to update state with a timeout function
+// Otherwise, we get an error
 export const useInterval = (callback, delay) => {
   const savedCallback = useRef();
 
