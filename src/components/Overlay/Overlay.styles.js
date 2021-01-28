@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   overlay: {
@@ -13,12 +13,12 @@ export const styles = StyleSheet.create({
   messageHeader: {
     color: 'white',
     fontSize: 25,
-    fontWeight: '700'
+    fontWeight: '700',
   },
   messageText: {
     color: 'white',
     fontSize: 22,
     fontWeight: '300',
-    paddingTop: 10
-  }
-})
+    paddingTop: 10,
+  },
+});
