@@ -10,9 +10,9 @@ import styles from '../Styles';
 
 const PREROLL_VIDEO =
   'https://uploads.boxcast.com/s0dfavw2jtjhbv43fkx4/2021-01/l5ghg3sovcdnjlmwty1i/Preroll__Jan2021_.mp4';
-const channel_id = 'v5rbqd6pznpte4uowpoh';
+const channel_id = 'edy1sypmjj05xpt3usbe';
 
-const LiveScreen = ({navigation}) => {
+const Live = () => {
   /*
     We have a 200 api call per device limit!
   **/
@@ -107,4 +107,4 @@ const LiveScreen = ({navigation}) => {
   );
 };
 
-export default LiveScreen;
+export default Live;

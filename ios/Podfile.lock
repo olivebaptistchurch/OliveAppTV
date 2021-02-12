@@ -281,6 +281,10 @@ PODS:
     - React-jsi (= 0.63.3-0)
   - RNCMaskedView (0.1.10):
     - React
+  - RNGestureHandler (1.10.0):
+    - React-Core
+  - RNReanimated (1.13.2):
+    - React-Core
   - RNScreens (2.17.1):
     - React-Core
   - Yoga (1.14.0)
@@ -322,6 +326,8 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -396,6 +402,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -440,6 +450,8 @@ SPEC CHECKSUMS:
   React-RCTText: fdf1d98de8e6556d35f837ac9121464363e10ad8
   ReactCommon: 13cb5bbb74ee1c844bc14aead4d8da214a7d3374
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
+  RNGestureHandler: 03f587ba19a7e2d9fe48fb9aa6e33ace5fd07dd5
+  RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
   RNScreens: b6c9607e6fe47c1b6e2f1910d2acd46dd7ecea3a
   Yoga: 5d20be5a2c1c18789d3181cbbff241010ff959e7
   YogaKit: 1e22bf2228b3a5ac8cc88965153061ae92c494b5

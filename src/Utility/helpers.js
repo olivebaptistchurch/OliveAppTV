@@ -20,3 +20,5 @@ export const useInterval = (callback, delay) => {
     }
   }, [delay]);
 };
+
+export const convertToRgb = (color) => color.rgb().string();
