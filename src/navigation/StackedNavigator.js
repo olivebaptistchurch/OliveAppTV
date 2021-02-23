@@ -2,7 +2,7 @@ import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import TabbedNavigator from './TabbedNavigator';
+import Live from '../screens/Live';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +12,7 @@ const StackedNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Home" component={TabbedNavigator} />
+      <Stack.Screen name="Home" component={Live} />
     </Stack.Navigator>
   );
 };

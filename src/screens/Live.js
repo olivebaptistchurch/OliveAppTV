@@ -1,29 +1,39 @@
+/* eslint-disable react-native/no-inline-styles */
 import {api} from 'boxcast-sdk-js';
-import React from 'react';
-import {useState} from 'react';
+import React, {Component} from 'react';
 import {View} from 'react-native';
 import VideoPlayer from 'react-native-video';
 import moment from 'moment';
 import Overlay from '../components/Overlay/Overlay';
-import {useInterval} from '../Utility/helpers';
 import styles from '../Styles';
 
 const PREROLL_VIDEO =
   'https://uploads.boxcast.com/s0dfavw2jtjhbv43fkx4/2021-01/l5ghg3sovcdnjlmwty1i/Preroll__Jan2021_.mp4';
 const channel_id = 'edy1sypmjj05xpt3usbe';
 
-const Live = () => {
+class Live extends Component {
   /*
-    We have a 200 api call per device limit!
+    We have a 200 api call/hr per device limit!
   **/
 
-  const [currentBroadcast, setCurrentBroadcast] = useState(PREROLL_VIDEO);
-  const [nextBroadcast, setNextBroadcast] = useState({
-    messageName: '',
-    messageTime: '',
-  });
+  state = {
+    currentBroadcast: PREROLL_VIDEO,
+    nextBroadcast: {
+      messageName: '',
+      messageTime: '',
+    },
+  };
 
-  function getNextBroadcast() {
+  componentDidMount() {
+    this.interval = setInterval(() => this.getCurrentBroadcast(), 5000);
+    this.interval = setInterval(() => this.getNextBroadcast(), 600000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  getNextBroadcast = () => {
     api.broadcasts
       .list(channel_id, {
         q: 'timeframe:next',
@@ -31,20 +41,24 @@ const Live = () => {
       })
       .then((r) => {
         if (r.data.length > 0) {
-          setNextBroadcast({
-            messageName: r.data[0].name,
-            messageTime: moment(r.data[0].starts_at).calendar(),
+          return this.setState({
+            nextBroadcast: {
+              messageName: r.data[0].name,
+              messageTime: moment(r.data[0].starts_at).calendar(),
+            },
           });
         } else {
-          setNextBroadcast({
-            messageName: '',
-            messageTime: '',
+          return this.setState({
+            nextBroadcast: {
+              messageName: '',
+              messageTime: '',
+            },
           });
         }
       });
-  }
+  };
 
-  function getCurrentBroadcast() {
+  getCurrentBroadcast() {
     api.broadcasts
       .list(channel_id, {
         q: 'timeframe:current',
@@ -67,44 +81,41 @@ const Live = () => {
             })
             .then((view) => {
               // console.log(isLive)
-              setCurrentBroadcast(view.playlist);
+              return this.setState({
+                currentBroadcast: view.playlist,
+              });
             });
         } else {
-          setCurrentBroadcast(PREROLL_VIDEO);
+          return this.setState({
+            currentBroadcast: PREROLL_VIDEO,
+          });
         }
       });
   }
 
-  getNextBroadcast();
-
-  useInterval(() => {
-    getNextBroadcast(), 120000;
-  });
-
-  useInterval(() => {
-    getCurrentBroadcast(), 5000;
-  }); // Make call every 5s
-
-  return (
-    <View style={{flex: 1}}>
-      <VideoPlayer
-        source={{uri: currentBroadcast}}
-        ref={(ref) => {
-          this.player = ref;
-        }}
-        style={styles.backgroundVideo}
-      />
-      {currentBroadcast === PREROLL_VIDEO &&
-      nextBroadcast.messageName !== '' ? (
-        <Overlay
-          message={{
-            line1: nextBroadcast.messageName,
-            line2: `Next broadcast starts: ${nextBroadcast.messageTime}`,
+  render() {
+    return (
+      <View style={{flex: 1}}>
+        {this.getNextBroadcast()}
+        <VideoPlayer
+          source={{uri: this.state.currentBroadcast}}
+          ref={(ref) => {
+            this.player = ref;
           }}
+          style={styles.backgroundVideo}
         />
-      ) : null}
-    </View>
-  );
-};
+        {this.state.currentBroadcast === PREROLL_VIDEO &&
+        this.state.nextBroadcast.messageName !== '' ? (
+          <Overlay
+            message={{
+              line1: this.state.nextBroadcast.messageName,
+              line2: `Next broadcast starts: ${this.state.nextBroadcast.messageTime}`,
+            }}
+          />
+        ) : null}
+      </View>
+    );
+  }
+}
 
 export default Live;
